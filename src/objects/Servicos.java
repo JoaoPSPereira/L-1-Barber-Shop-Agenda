@@ -2,9 +2,10 @@ package objects;
 
 import java.util.ArrayList;
 
-import interfaces.crud;
+import interfaces.Crud;
 
-public class Servicos implements crud{
+
+public class Servicos implements Crud{
 	private String nome;
 	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	
@@ -41,22 +42,22 @@ public class Servicos implements crud{
 
 
 	@Override
-	public void Cadastrar() {
+	public void cadastrar() {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void Editar() {
+	public void editar() {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void Excluir() {
+	public void excluir() {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void Listar() {
+	public void listar() {
 		// TODO Auto-generated method stub
 		
 	}

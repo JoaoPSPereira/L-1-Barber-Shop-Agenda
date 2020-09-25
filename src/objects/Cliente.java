@@ -1,8 +1,9 @@
 package objects;
 
-import interfaces.crud;
+import interfaces.Crud;
 
-public class Cliente implements crud{
+
+public class Cliente implements Crud{
 	private String nome;
 	private String telefone;
 	private DataNasc nascimento;
@@ -42,25 +43,25 @@ public class Cliente implements crud{
 	}
 
 	@Override
-	public void Cadastrar() {
+	public void cadastrar() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void Editar() {
+	public void editar() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void Excluir() {
+	public void excluir() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void Listar() {
+	public void listar() {
 		// TODO Auto-generated method stub
 		
 	}
