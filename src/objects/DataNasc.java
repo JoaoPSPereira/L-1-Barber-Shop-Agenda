@@ -13,6 +13,9 @@ public class DataNasc {
 		this.ano = ano;
 	}
 	
+	//------------------------------------------------------//
+	//Getters e Setters
+	
 	public String toString() {
 		return dia + "/" + mes + "/" + ano;
 	}
