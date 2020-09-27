@@ -1,22 +1,26 @@
 package objects;
 
+import java.io.Serializable;
+
 /*Classe que representa o objeto Cliente*/
 
-import interfaces.Crud;
 
-public class Cliente implements Crud{
+public class Cliente implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//------------------------------------------------------//
 	//Atributos
 	private String nome;
 	private String telefone;
-	private DataNasc nascimento;
+	private String nascimento;
 	private int genero;
 	
 	//------------------------------------------------------//
 	//Construtor
-	public Cliente(String nome, String telefone, DataNasc nascimento, int genero) {
-		super();
+	public Cliente(String nome, String telefone, String nascimento, int genero) {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.nascimento = nascimento;
@@ -24,11 +28,22 @@ public class Cliente implements Crud{
 	}
 	
 	//------------------------------------------------------//
+	//Método toString
+	@Override
+	public String toString() {
+		return "Cliente [nome=" + nome + ", telefone=" + telefone + ", nascimento=" + nascimento + ", genero=" + genero
+				+ "]";
+	}
+
+	
+	
+	//------------------------------------------------------//
 	//Getters e Setters
 	
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -38,10 +53,10 @@ public class Cliente implements Crud{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public DataNasc getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(DataNasc nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 	public int getGenero() {
@@ -51,32 +66,6 @@ public class Cliente implements Crud{
 		this.genero = genero;
 	}
 	
-	//------------------------------------------------------//	
-	//Métodos da Interface Crud 
-	
-	@Override
-	public void cadastrar() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void editar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void excluir() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 }

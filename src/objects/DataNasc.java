@@ -1,8 +1,15 @@
 package objects;
 
-public class DataNasc {
+import java.io.Serializable;
+
+
+public class DataNasc implements Serializable{
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int dia;
 	int mes;
 	int ano;
@@ -17,7 +24,7 @@ public class DataNasc {
 	//Getters e Setters
 	
 	public String toString() {
-		return dia + "/" + mes + "/" + ano;
+		return "" + dia + "/" + mes + "/" + ano + "" ;
 	}
 	
 	public int getDia() {

@@ -1,10 +1,13 @@
 package objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-import interfaces.Crud;
-
-public class Servicos implements Crud{
+public class Servico implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//------------------------------------------------------//
 	//Atributos
 	
@@ -14,11 +17,9 @@ public class Servicos implements Crud{
 	//------------------------------------------------------//
 	//Construtor
 	
-	public Servicos(String nome) {
-		super();
+	public Servico(String nome) {
 		this.nome = nome;
 	}
-	
 	
 	//------------------------------------------------------//
 	//Getters e Setters
@@ -39,29 +40,5 @@ public class Servicos implements Crud{
 		this.clientes = clientes;
 	}
 
-	//------------------------------------------------------//	
-	//Métodos da Interface Crud 
-	
-	@Override
-	public void cadastrar() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void editar() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void excluir() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 }
