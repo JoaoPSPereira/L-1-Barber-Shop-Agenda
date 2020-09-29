@@ -23,6 +23,8 @@ public class Cadastrar implements Serializable{
 	
 	@SuppressWarnings("unchecked")
 	public void cliente(Cliente e) throws Exception {
+		//Verifica se arquivo existe
+		//Se não existir -> cria novo arquivo em branco
 		File temp = new File(this.pathClientes);
 		if(!temp.exists()) {
 			FileOutputStream output = new FileOutputStream(this.pathClientes);
@@ -30,11 +32,17 @@ public class Cadastrar implements Serializable{
 			escritor.writeObject(this.clientes);
 			escritor.close();;
 		}
+		
+		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		FileInputStream input = new FileInputStream(this.pathClientes);
 		ObjectInputStream leitor = new ObjectInputStream(input);
 		this.clientes = (ArrayList<Cliente>) leitor.readObject();
-		this.clientes.add(e);
 		leitor.close();
+		
+		//Adiciona o novo cliente à lista de cadastro
+		this.clientes.add(e);
+		
+		//Salva lista de cadastros em arquivo no disco
 		FileOutputStream output = new FileOutputStream(this.pathClientes);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
 		escritor.writeObject(this.clientes);
@@ -43,11 +51,24 @@ public class Cadastrar implements Serializable{
 	
 	@SuppressWarnings("unchecked")
 	public void servico(Servico e) throws Exception {
+		//Verifica se arquivo existe
+		//Se não existir -> cria novo arquivo em branco
+		File temp = new File(this.pathServicos);
+		if(!temp.exists()) {
+			FileOutputStream output = new FileOutputStream(this.pathServicos);
+			ObjectOutputStream escritor = new ObjectOutputStream(output);
+			escritor.writeObject(this.servicos);
+			escritor.close();;
+		}
+		
+		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		FileInputStream input = new FileInputStream(this.pathServicos);
 		ObjectInputStream leitor = new ObjectInputStream(input);
 		this.servicos = (ArrayList<Servico>) leitor.readObject();
-		this.servicos.add(e);
 		leitor.close();
+		
+		this.servicos.add(e);
+		
 		FileOutputStream output = new FileOutputStream(this.pathClientes);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
 		escritor.writeObject(this.clientes);
