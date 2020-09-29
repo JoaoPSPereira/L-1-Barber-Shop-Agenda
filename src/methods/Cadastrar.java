@@ -16,62 +16,62 @@ public class Cadastrar implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-	private ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private String pathClientes = System.getProperty("user.home") + "\\clientes.ser";
-	private String pathServicos = System.getProperty("user.home") + "\\servicos.ser";
+	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
+	private static String pathClientes = System.getProperty("user.home") + "\\clientes.ser";
+	private static String pathServicos = System.getProperty("user.home") + "\\servicos.ser";
 	
 	@SuppressWarnings("unchecked")
-	public void cliente(Cliente e) throws Exception {
+	public static void cliente(Cliente e) throws Exception {
 		//Verifica se arquivo existe
 		//Se não existir -> cria novo arquivo em branco
-		File temp = new File(this.pathClientes);
+		File temp = new File(pathClientes);
 		if(!temp.exists()) {
-			FileOutputStream output = new FileOutputStream(this.pathClientes);
+			FileOutputStream output = new FileOutputStream(pathClientes);
 			ObjectOutputStream escritor = new ObjectOutputStream(output);
-			escritor.writeObject(this.clientes);
+			escritor.writeObject(clientes);
 			escritor.close();;
 		}
 		
 		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(this.pathClientes);
+		FileInputStream input = new FileInputStream(pathClientes);
 		ObjectInputStream leitor = new ObjectInputStream(input);
-		this.clientes = (ArrayList<Cliente>) leitor.readObject();
+		clientes = (ArrayList<Cliente>) leitor.readObject();
 		leitor.close();
 		
 		//Adiciona o novo cliente à lista de cadastro
-		this.clientes.add(e);
+		clientes.add(e);
 		
 		//Salva lista de cadastros em arquivo no disco
-		FileOutputStream output = new FileOutputStream(this.pathClientes);
+		FileOutputStream output = new FileOutputStream(pathClientes);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
-		escritor.writeObject(this.clientes);
+		escritor.writeObject(clientes);
 		escritor.close();;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void servico(Servico e) throws Exception {
+	public static void servico(Servico e) throws Exception {
 		//Verifica se arquivo existe
 		//Se não existir -> cria novo arquivo em branco
-		File temp = new File(this.pathServicos);
+		File temp = new File(pathServicos);
 		if(!temp.exists()) {
-			FileOutputStream output = new FileOutputStream(this.pathServicos);
+			FileOutputStream output = new FileOutputStream(pathServicos);
 			ObjectOutputStream escritor = new ObjectOutputStream(output);
-			escritor.writeObject(this.servicos);
+			escritor.writeObject(servicos);
 			escritor.close();;
 		}
 		
 		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(this.pathServicos);
+		FileInputStream input = new FileInputStream(pathServicos);
 		ObjectInputStream leitor = new ObjectInputStream(input);
-		this.servicos = (ArrayList<Servico>) leitor.readObject();
+		servicos = (ArrayList<Servico>) leitor.readObject();
 		leitor.close();
 		
-		this.servicos.add(e);
+		servicos.add(e);
 		
-		FileOutputStream output = new FileOutputStream(this.pathClientes);
+		FileOutputStream output = new FileOutputStream(pathClientes);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
-		escritor.writeObject(this.clientes);
+		escritor.writeObject(clientes);
 		escritor.close();;
 	}
 }
