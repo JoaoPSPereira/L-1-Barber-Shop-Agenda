@@ -16,8 +16,8 @@ public class App {
 	public static void main(String[] args) throws Exception {
 		
 		//Inicialização ---- NÃO MEXER !!!
-		File clientes = new File(System.getProperty("user.tecsus") + "\\clientes.ser");
-		File servicos = new File(System.getProperty("user.tecsus") + "\\servicos.ser");
+		File clientes = new File(System.getProperty("user.home") + "\\clientes.ser");
+		File servicos = new File(System.getProperty("user.home") + "\\servicos.ser");
 		
 		clientes.mkdirs(); servicos.mkdirs();
 		
@@ -45,6 +45,7 @@ public class App {
 		if (escolha == 2) {
 			System.out.println("Insira o nome do cliente a ser editado:");
 			String alvo = leitura.texto();
+			Listar.cliente(alvo);
 			
 		}
 		
