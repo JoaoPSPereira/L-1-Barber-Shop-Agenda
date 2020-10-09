@@ -57,6 +57,7 @@ public class App {
 		
 		if (escolha == 4) {
 			System.out.println("listar cliente");
+			Listar.clientes();
 		}
 		
 		if (escolha == 5) {
@@ -65,7 +66,7 @@ public class App {
 		
 		//Cadastrar cad = new Cadastrar();
 		//cad.cliente(c);
-		//Listar.clientes();
+		
 		
 	}
 		
