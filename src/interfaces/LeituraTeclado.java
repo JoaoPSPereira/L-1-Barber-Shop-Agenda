@@ -9,7 +9,7 @@ public class LeituraTeclado {
 		ler = new Scanner(System.in);
 	}
 
-	public synchronized int opcao() {
+	public synchronized int numero() {
 		int o = ler.nextInt();
 		ler = ler.reset();
 		return o;
