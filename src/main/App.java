@@ -6,6 +6,8 @@ import objects.*;
 
 import java.io.File;
 
+import interfaces.LeituraTeclado;
+import interfaces.Menu;
 import methods.*;
 
 
@@ -20,14 +22,31 @@ public class App {
 		clientes.mkdirs(); servicos.mkdirs();
 		
 		// ------------------------------
+		LeituraTeclado leitura = new LeituraTeclado();
+		int escolha = 0;
+		while (escolha != 6) {
+			Menu.mostrarMenu();
+			escolha = leitura.opcao();
+			
+		if (escolha == 1){
+			System.out.println("cadastro de cliente");;
+		}
 		
+		if (escolha == 2) {
+			System.out.println("editar cliente");
+		}
 		
-		//Teste
-		DataNasc n = new DataNasc(02,03,2001);
-	
-		System.out.println(n.toString());
+		if (escolha == 3) {
+			System.out.println("excluir cliente");
+		}
 		
-		//Cliente c = new Cliente(null, null, null, 0);
+		if (escolha == 4) {
+			System.out.println("listar cliente");
+		}
+		
+		if (escolha == 5) {
+			System.out.println("gerar relatorios");
+		}
 		
 		System.out.println(System.getProperty("user.home") + "\\l-1\\clientes.ser");
 		//Cadastrar cad = new Cadastrar();
@@ -35,5 +54,7 @@ public class App {
 		Listar.clientes();
 		
 	}
+		
+  }
 
 }
