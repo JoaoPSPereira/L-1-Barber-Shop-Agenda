@@ -2,7 +2,7 @@ package main;
 
 /*Classe do front-end*/
 
-import objects.*;
+import objects.Cliente;
 
 import java.io.File;
 
@@ -16,8 +16,8 @@ public class App {
 	public static void main(String[] args) throws Exception {
 		
 		//Inicialização ---- NÃO MEXER !!!
-		File clientes = new File(System.getProperty("user.home") + "\\L-1\\clientes.ser");
-		File servicos = new File(System.getProperty("user.home") + "\\L-1\\servicos.ser");
+		File clientes = new File(System.getProperty("user.home") + "\\clientes.ser");
+		File servicos = new File(System.getProperty("user.home") + "\\servicos.ser");
 		
 		clientes.mkdirs(); servicos.mkdirs();
 		
@@ -26,14 +26,27 @@ public class App {
 		int escolha = 0;
 		while (escolha != 6) {
 			Menu.mostrarMenu();
-			escolha = leitura.opcao();
+			escolha = leitura.numero();
 			
 		if (escolha == 1){
-			System.out.println("cadastro de cliente");;
+			System.out.println("Nome do cliente:");
+			String nome = leitura.texto();
+			System.out.println("Número de telefone:");
+			String telefone = leitura.texto();
+			System.out.println("Data de nascimento:");
+			String nascimento = leitura.texto();
+			System.out.println("Informe o gênero");
+			System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
+			int genero = leitura.numero();
+			Cliente c = new Cliente(nome, telefone, nascimento, genero);
+			System.out.println(c);
 		}
 		
 		if (escolha == 2) {
-			System.out.println("editar cliente");
+			System.out.println("Insira o nome do cliente a ser editado:");
+			String alvo = leitura.texto();
+			Listar.cliente(alvo);
+			
 		}
 		
 		if (escolha == 3) {
