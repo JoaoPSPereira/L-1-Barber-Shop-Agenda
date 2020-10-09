@@ -45,6 +45,7 @@ public class App {
 		if (escolha == 2) {
 			System.out.println("Insira o nome do cliente a ser editado:");
 			String alvo = leitura.texto();
+			System.out.println("teste");
 			
 		}
 		
