@@ -20,17 +20,18 @@ public class Listar {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static Cliente cliente(String alvo) throws Exception{
+	public static void cliente(String alvo) throws Exception{
+		Cliente cliente = null;
 		FileInputStream input = new FileInputStream(pathClientes);
 		ObjectInputStream leitor = new ObjectInputStream(input);
 		clientes = (ArrayList<Cliente>) leitor.readObject();
 		leitor.close();
 		for(Cliente c : clientes) {
 			if (c.getNome().toUpperCase() == alvo.toUpperCase()) {
-				return c;
+				cliente = c;
 			}
 		}
-		return null;
+		System.out.println(cliente.toString());
 	}
 	
 	
