@@ -16,7 +16,7 @@ public class Editar {
 	private static String pathServicos = System.getProperty("user.home") + "\\servicos.ser";
 	
 	@SuppressWarnings("unchecked")
-	public static boolean cliente(String alvo, Cliente novo) throws Exception{
+	public static boolean cliente(String alvo) throws Exception{
 		
 		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		FileInputStream input = new FileInputStream(pathClientes);
@@ -27,9 +27,19 @@ public class Editar {
 		
 		//Percorre a lista contendo os cadastros de clientes
 		for(Cliente c : clientes) {
+			
 			if (c.getNome().toUpperCase() == alvo.toUpperCase()) {
-				/*Se o nome do objeto sendo percorrido é igual ao 
-				nome do objeto alvo, remove o objeto da lista*/
+				System.out.println(c.getNome());
+				
+				String nome;
+				String telefone;
+				String nascimento;
+				int genero;
+				
+				
+				//Cliente novo = new Cliente(nome, telefone, nascimento, genero);
+				
+				//Salvando as alterações
 				int index = clientes.indexOf(c);
 				clientes.remove(c);
 				
@@ -39,9 +49,10 @@ public class Editar {
 				ObjectOutputStream escritor = new ObjectOutputStream(output);
 				escritor.writeObject(clientes);
 				escritor.close();;
-				
+				//-----------------------------
 				return true;
 			}
+			
 		}
 		return false;
 	}
