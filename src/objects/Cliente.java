@@ -31,11 +31,15 @@ public class Cliente implements Serializable{
 	//Método toString
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + nome + ", telefone=" + telefone + ", nascimento=" + nascimento + ", genero=" + genero
-				+ "]";
+		return "nome=" + nome + " telefone=" + telefone + " nascimento=" + nascimento + " genero=" + genero + "\n";
 	}
 
-	
+	public void print() {
+		System.out.println("Nome: "+this.getNome());
+		System.out.println("Telefone: "+this.getTelefone());
+		System.out.println("Data de nascimento: "+this.getNascimento());
+		System.out.println("Gênero: "+this.getGenero());
+	}
 	
 	//------------------------------------------------------//
 	//Getters e Setters
