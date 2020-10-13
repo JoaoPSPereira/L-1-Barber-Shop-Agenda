@@ -33,6 +33,27 @@ public class Listar {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public static void genero() throws Exception{
+		
+		//Lendo arquivo de serialização
+		FileInputStream input = new FileInputStream(pathClientes);
+		ObjectInputStream leitor = new ObjectInputStream(input);
+		clientes = (ArrayList<Cliente>) leitor.readObject();
+		leitor.close();
+		
+		//Colocando em ordem alfabética
+		Collections.sort(clientes, new Comparator<Cliente>(){
+		    public int compare(Cliente s1, Cliente s2) {
+		        return s1.getNome().compareToIgnoreCase(s2.getNome());
+		    }
+		});
+		
+		//printando
+		System.out.println(clientes.toString());
+	}
+	
+	
+	@SuppressWarnings("unchecked")
 	public static void cliente(String alvo) throws Exception{
 	
 		FileInputStream input = new FileInputStream(pathClientes);
