@@ -31,8 +31,7 @@ public class Cliente implements Serializable{
 	//Método toString
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + nome + ", telefone=" + telefone + ", nascimento=" + nascimento + ", genero=" + genero
-				+ "]";
+		return "nome=" + nome + " telefone=" + telefone + " nascimento=" + nascimento + " genero=" + genero + "\n";
 	}
 
 	public void print() {

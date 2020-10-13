@@ -33,7 +33,7 @@ public class Listar {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static void genero() throws Exception{
+	public static void genero(int genero) throws Exception{
 		
 		//Lendo arquivo de serialização
 		FileInputStream input = new FileInputStream(pathClientes);
@@ -48,8 +48,13 @@ public class Listar {
 		    }
 		});
 		
-		//printando
-		System.out.println(clientes.toString());
+		//printando somente clientes do genero selecionado
+		for(Cliente c : clientes) {			
+			if (c.getGenero() == genero) {
+				System.out.println(c.toString());
+			}
+		}
+		
 	}
 	
 	
