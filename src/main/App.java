@@ -13,13 +13,14 @@ import methods.*;
 
 public class App {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		
 		//Inicialização ---- NÃO MEXER !!!
-		File clientes = new File(System.getProperty("user.home") + "\\clientes.ser");
+		/*File clientes = new File(System.getProperty("user.home") + "\\clientes.ser");
 		File servicos = new File(System.getProperty("user.home") + "\\servicos.ser");
 		
-		clientes.mkdirs(); servicos.mkdirs();
+		clientes.mkdirs(); servicos.mkdirs();*/
 		
 		// ------------------------------
 		LeituraTeclado leitura = new LeituraTeclado();
@@ -39,13 +40,14 @@ public class App {
 			System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
 			int genero = leitura.numero();
 			Cliente c = new Cliente(nome, telefone, nascimento, genero);
+			Cadastrar.cliente(c);
 			System.out.println(c);
 		}
 		
 		if (escolha == 2) {
 			System.out.println("Insira o nome do cliente a ser editado:");
 			String alvo = leitura.texto();
-			Listar.cliente(alvo);
+			Editar.cliente(alvo);
 			
 		}
 		
@@ -61,10 +63,9 @@ public class App {
 			System.out.println("gerar relatorios");
 		}
 		
-		System.out.println(System.getProperty("user.home") + "\\l-1\\clientes.ser");
 		//Cadastrar cad = new Cadastrar();
 		//cad.cliente(c);
-		Listar.clientes();
+		//Listar.clientes();
 		
 	}
 		
