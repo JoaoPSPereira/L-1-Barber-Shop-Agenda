@@ -6,39 +6,30 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Servico implements Serializable{
+public class Produto implements Serializable{
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	//------------------------------------------------------//
 	//Atributos
-	
 	private String nome;
 	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
-	//------------------------------------------------------//
-	//Construtor
-	
-	public Servico(String nome) {
-		this.nome = nome;
-	}
 	
 	//------------------------------------------------------//
 	//Getters e Setters
-	
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	public ArrayList<Cliente> getClientes() {
 		return clientes;
 	}
-
 	@SuppressWarnings("unchecked")
 	public boolean addCliente(String alvo) throws IOException, ClassNotFoundException {
 		
@@ -62,5 +53,4 @@ public class Servico implements Serializable{
 		return false;
 	}
 
-	
 }

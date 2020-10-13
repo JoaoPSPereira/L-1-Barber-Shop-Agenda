@@ -18,8 +18,8 @@ public class Cadastrar implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = System.getProperty("user.home") + "\\clientes.ser";
-	private static String pathServicos = System.getProperty("user.home") + "\\servicos.ser";
+	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
+	private static String pathServicos = System.getProperty("user.home") + "\\Desktop\\servicos.ser";
 	
 	@SuppressWarnings("unchecked")
 	public static void cliente(Cliente e) throws Exception {
@@ -33,12 +33,14 @@ public class Cadastrar implements Serializable{
 			escritor.close();;
 		}
 		
-		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
 		
+		if(temp.exists()) {
+			FileInputStream input = new FileInputStream(pathClientes);
+			ObjectInputStream leitor = new ObjectInputStream(input);
+			clientes = (ArrayList<Cliente>) leitor.readObject();
+			leitor.close();
+		}
+		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		//Adiciona o novo cliente à lista de cadastro
 		clientes.add(e);
 		
