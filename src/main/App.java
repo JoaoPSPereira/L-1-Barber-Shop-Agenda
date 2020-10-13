@@ -52,7 +52,9 @@ public class App {
 		}
 		
 		if (escolha == 3) {
-			System.out.println("excluir cliente");
+			System.out.println("Insira o nome do cliente a ser excluído:");
+			String alvo = leitura.texto();
+			Excluir.cliente(alvo);
 		}
 		
 		if (escolha == 4) {
