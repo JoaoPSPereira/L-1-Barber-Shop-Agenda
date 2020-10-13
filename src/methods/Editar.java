@@ -115,20 +115,22 @@ public class Editar {
 				System.out.println("*********************");
 				
 				
-				//Cliente novo = new Cliente(nome, telefone, nascimento, genero);
-				
-				//Salvando as alterações
-				/*int index = clientes.indexOf(c);
-				clientes.remove(c);
-				
-				clientes.add(index, novo);*/
-				
 				FileOutputStream output = new FileOutputStream(pathClientes);
 				ObjectOutputStream escritor = new ObjectOutputStream(output);
 				escritor.writeObject(clientes);
 				escritor.close();;
 				//-----------------------------
 				return true;
+			}
+			
+			else {
+				System.out.println("Cadastro não encontrado");
+				System.out.println("Redirecionando para o Menu principal");
+				System.out.println(".");
+				System.out.println(".");
+				System.out.println(".");
+				return false;
+				
 			}
 			
 		}
