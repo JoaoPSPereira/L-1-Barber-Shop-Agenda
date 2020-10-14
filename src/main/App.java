@@ -25,11 +25,11 @@ public class App {
 		// ------------------------------
 		LeituraTeclado leitura = new LeituraTeclado();
 		int escolha = 0;
-		while (escolha != 6) {
+		while (escolha != 5) {
 			Menu.mostrarMenu();
 			escolha = leitura.numero();
 			
-		if (escolha == 1){
+		if (escolha == 0){
 			System.out.println("Nome do cliente:");
 			String nome = leitura.texto();
 			System.out.println("Número de telefone:");
@@ -44,30 +44,40 @@ public class App {
 			System.out.println(c);
 		}
 		
-		if (escolha == 2) {
+		if (escolha == 1) {
 			System.out.println("Insira o nome do cliente a ser editado:");
 			String alvo = leitura.texto();
 			Editar.cliente(alvo);
 			
 		}
 		
-		if (escolha == 3) {
+		if (escolha == 2) {
 			System.out.println("Insira o nome do cliente a ser excluído:");
 			String alvo = leitura.texto();
 			Excluir.cliente(alvo);
 		}
 		
-		if (escolha == 4) {
-			System.out.println("listar cliente");
-			Listar.clientes();
+		if (escolha == 3) {
+			System.out.println("Selecione a opção desejada:");
+			System.out.println("0- Listar por gênero Masculino");
+			System.out.println("1- Listar por gênero Feminino");
+			System.out.println("2- Listar por gênero Outros");
+			System.out.println("3- Listar todos");
+			escolha = 0;
+			escolha = leitura.numero();
+			
+			if (escolha != 3) {
+				Listar.genero(escolha);
+			}
+			else {
+				Listar.clientes();
+			}
 		}
 		
-		if (escolha == 5) {
+		if (escolha == 4) {
 			System.out.println("gerar relatorios");
 		}
 		
-		//Cadastrar cad = new Cadastrar();
-		//cad.cliente(c);
 		
 		
 	}

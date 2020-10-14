@@ -51,7 +51,7 @@ public class Listar {
 		//printando somente clientes do genero selecionado
 		for(Cliente c : clientes) {			
 			if (c.getGenero() == genero) {
-				System.out.println(c.toString());
+				c.print();
 			}
 		}
 		
@@ -76,3 +76,5 @@ public class Listar {
 	
 	
 }
+
+//comentarioo
