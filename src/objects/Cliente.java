@@ -17,6 +17,7 @@ public class Cliente implements Serializable{
 	private String telefone;
 	private String nascimento;
 	private int genero;
+	private int idade;
 	
 	//------------------------------------------------------//
 	//Construtor
@@ -84,6 +85,12 @@ public class Cliente implements Serializable{
 	}
 	public void setGenero(int genero) {
 		this.genero = genero;
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
 	}
 	
 
