@@ -52,55 +52,55 @@ public class Editar {
 				System.out.println("Gênero: "+c.getGenero());
 				System.out.println("*********************");
 				System.out.println("Escolha a opção desejada:");
-				System.out.println("1- Editar nome");
-				System.out.println("2- Editar telefone");
-				System.out.println("3- Editar data de nascimento");
-				System.out.println("4- Editar gênero");
-				System.out.println("5- Editar cadastro todo");
-				System.out.println("6- Voltar ao menu principal");
+				System.out.println("0- Editar nome");
+				System.out.println("1- Editar telefone");
+				System.out.println("2- Editar data de nascimento");
+				System.out.println("3- Editar gênero");
+				System.out.println("4- Editar cadastro todo");
+				System.out.println("5- Voltar ao menu principal");
 				
 				int escolha = 0;
 				LeituraTeclado leitura = new LeituraTeclado();
 				escolha = leitura.numero();
 				
 				switch (escolha) {
-				case 1:
+				case 0:
 					System.out.println("Novo nome:");
 					newnome = leitura.texto();
 					newc.setNome(newnome);
 					break;
-				case 2:
+				case 1:
 					System.out.println("Novo telefone:");
 					newtelefone = leitura.texto();
 					newc.setTelefone(newtelefone);
 					break;
-				case 3:
+				case 2:
 					System.out.println("Nova data de nascimento:");
 					newnascimento = leitura.texto();
 					newc.setNascimento(newnascimento);
 					break;
+				case 3:
+					System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
+					System.out.println("Novo gênero:");
+					newgenero = leitura.numero();
+					newc.setGenero(newgenero);
+					break;
 				case 4:
+					System.out.println("Novo nome:");
+					newnome = leitura.texto();
+					newc.setNome(newnome);
+					System.out.println("Novo telefone:");
+					newtelefone = leitura.texto();
+					newc.setTelefone(newtelefone);
+					System.out.println("Nova data de nascimento:");
+					newnascimento = leitura.texto();
+					newc.setNascimento(newnascimento);
 					System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
 					System.out.println("Novo gênero:");
 					newgenero = leitura.numero();
 					newc.setGenero(newgenero);
 					break;
 				case 5:
-					System.out.println("Novo nome:");
-					newnome = leitura.texto();
-					newc.setNome(newnome);
-					System.out.println("Novo telefone:");
-					newtelefone = leitura.texto();
-					newc.setTelefone(newtelefone);
-					System.out.println("Nova data de nascimento:");
-					newnascimento = leitura.texto();
-					newc.setNascimento(newnascimento);
-					System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
-					System.out.println("Novo gênero:");
-					newgenero = leitura.numero();
-					newc.setGenero(newgenero);
-					break;
-				case 6:
 					Menu.mostrarMenu();
 					break;
 				}

@@ -35,10 +35,26 @@ public class Cliente implements Serializable{
 	}
 
 	public void print() {
+		String genEscrito = null;
+		switch (this.getGenero()) {
+		case 0:
+			genEscrito = "Masculino";
+			break;
+		case 1:
+			genEscrito = "Feminino";
+			break;
+		case 2:
+			genEscrito = "Outros";
+			break;
+		}
+		System.out.println("\n*********************");
+		System.out.println("CLIENTE CADASTRADO");
+		System.out.println("*********************");
 		System.out.println("Nome: "+this.getNome());
 		System.out.println("Telefone: "+this.getTelefone());
 		System.out.println("Data de nascimento: "+this.getNascimento());
-		System.out.println("Gênero: "+this.getGenero());
+		System.out.println("Gênero: "+genEscrito);
+		System.out.println("*********************");
 	}
 	
 	//------------------------------------------------------//
