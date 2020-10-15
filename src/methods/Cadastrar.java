@@ -83,9 +83,18 @@ public class Cadastrar implements Serializable{
 		for(Cliente c : clientes) {
 			String nomec = c.getNome().toUpperCase().trim();;
 			if (alvo.equals(nomec)) {
+				int index = clientes.indexOf(c);
+				
 				c.addServico(e.getNome());
+				clientes.remove(index);
+				clientes.add(index, c);	
 			}
 		}
+		//Salva no clientes.ser
+		FileOutputStream outputc = new FileOutputStream(pathClientes);
+		ObjectOutputStream escritorc = new ObjectOutputStream(outputc);
+		escritorc.writeObject(clientes);
+		escritorc.close();;
 		
 		//Cadastra o serviço
 		servicos.add(e);
