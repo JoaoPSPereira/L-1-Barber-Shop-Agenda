@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import objects.Cliente;
 import locals.Ler;
 
@@ -57,5 +60,21 @@ public class Relatorio {
 		System.out.println("Média de idade dos Clientes:" + media);
 	}
 	
-	
+	public static void servicoMaisProcurado() throws ClassNotFoundException, IOException {
+		
+		ArrayList<String> servicoClientes = new ArrayList<String>();
+		
+		//Lê o arquivo de clientes
+		ArrayList<Cliente> clientes = Ler.clientes();
+		
+		for (Cliente c : clientes)	{
+			servicoClientes.addAll(c.getServicos());
+		}
+		
+		Map<String, Long> occurrences = 
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+		
+		System.out.println("Servico mais procurado: " + occurrences);
+	}
 }
+
