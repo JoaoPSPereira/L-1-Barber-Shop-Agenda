@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
+import locals.Escrever;
+import locals.Ler;
 import locals.Path;
 import objects.Cliente;
 import objects.Servico;
@@ -19,14 +21,10 @@ public class Excluir {
 	private static String pathClientes = Path.clientes();
 	private static String pathServicos = Path.servicos();
 	
-	@SuppressWarnings("unchecked")
 	public static boolean cliente(String alvo) throws Exception{
 		
-		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
+		//Lendo o arquivo de cadastros
+		clientes = Ler.clientes();
 		
 		
 		//Percorre a lista contendo os cadastros de clientes
@@ -54,10 +52,8 @@ public class Excluir {
 				if (escolha == 1) {
 					clientes.remove(c);
 					
-					FileOutputStream output = new FileOutputStream(pathClientes);
-					ObjectOutputStream escritor = new ObjectOutputStream(output);
-					escritor.writeObject(clientes);
-					escritor.close();
+					//Salva o clientes.ser
+					Escrever.clientes(clientes);
 					
 					System.out.println("Cadastro excluído com sucesso!");
 					System.out.println("Redirecionando para o Menu principal");

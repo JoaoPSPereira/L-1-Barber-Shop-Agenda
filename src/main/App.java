@@ -5,8 +5,6 @@ package main;
 import objects.Cliente;
 import objects.Servico;
 
-import java.io.File;
-
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
 import methods.*;
@@ -14,7 +12,6 @@ import methods.*;
 
 public class App {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) throws Exception {
 		
 		//Inicialização ---- NÃO MEXER !!!
