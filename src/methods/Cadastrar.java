@@ -71,9 +71,9 @@ public class Cadastrar implements Serializable{
 		
 		servicos.add(e);
 		
-		FileOutputStream output = new FileOutputStream(pathClientes);
+		FileOutputStream output = new FileOutputStream(pathServicos);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
-		escritor.writeObject(clientes);
+		escritor.writeObject(servicos);
 		escritor.close();;
 	}
 }
