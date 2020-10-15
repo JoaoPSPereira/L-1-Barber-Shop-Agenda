@@ -31,9 +31,12 @@ public class Servico implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "nome=" + nome + ", cliente=" + cliente + ", data=" + data + ", horario=" + horario + "\n";
+		return "nome=" + nome + ", cliente=" + cliente + ", data=" + data + ", horario=" + horario +"\n";
 	}
 
+	public void printar() {
+		System.out.println(this.nome);
+	}
 
 
 	public String getNome() {

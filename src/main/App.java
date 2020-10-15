@@ -65,18 +65,22 @@ public class App {
 			System.out.println("2- Listar por gênero Outros");
 			System.out.println("3- Listar todos os clientes");
 			System.out.println("4- Listar serviços");
-			escolha = 0;
-			escolha = leitura.numero();
+			int opcao = 0;
+			opcao = leitura.numero();
 			
-			if (escolha == 0 || escolha == 1 || escolha == 2) {
-				Listar.genero(escolha);
+			if (opcao == 0 || opcao == 1 || opcao == 2) {
+				Listar.genero(opcao);
 			}
-			else if (escolha == 3) {
+			else if (opcao == 3) {
 				Listar.clientes();
 			}
 			
 			else {
+				System.out.println("\n*********************");
+				System.out.println("SERVIÇOS");
+				System.out.println("*********************");
 				Listar.servicos();
+				System.out.println("*********************");
 			}
 		}
 		
@@ -95,6 +99,7 @@ public class App {
 			String horario = leitura.texto();
 			Servico servico = new Servico(servico1, cliente, data, horario);
 			Cadastrar.servico(servico);
+			escolha = 0;
 			}
 		
 		

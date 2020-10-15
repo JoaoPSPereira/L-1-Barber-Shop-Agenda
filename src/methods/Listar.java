@@ -94,7 +94,9 @@ public class Listar {
 		});
 		
 		//printando
-		System.out.println(servicos.toString());
+		for (Servico s : servicos) {
+			s.printar();
+		}
 	}
 }
 
