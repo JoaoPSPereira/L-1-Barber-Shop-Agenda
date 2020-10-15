@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import locals.Path;
 import objects.*;
 
 public class Cadastrar implements Serializable{
@@ -18,8 +19,8 @@ public class Cadastrar implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
-	private static String pathServicos = System.getProperty("user.home") + "\\Desktop\\servicos.ser";
+	private static String pathClientes = Path.clientes();
+	private static String pathServicos = Path.servicos();
 	
 	@SuppressWarnings("unchecked")
 	public static void cliente(Cliente e) throws Exception {

@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import locals.Path;
 import objects.Cliente;
 import objects.Servico;
 
 public class Listar {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
-	private static String pathServicos = System.getProperty("user.home") + "\\Desktop\\servicos.ser";
+	private static String pathClientes = Path.clientes();
+	private static String pathServicos = Path.servicos();
 	
 	@SuppressWarnings("unchecked")
 	public static void clientes() throws Exception{
