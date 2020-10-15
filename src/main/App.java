@@ -104,7 +104,7 @@ public class App {
 		if (escolha == 6) {
 			System.out.println("Digite o nome do cliente:");
 			String alvo = leitura.texto();
-			
+			Listar.historico(alvo);
 		}
 		
 		

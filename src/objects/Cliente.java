@@ -101,4 +101,13 @@ public class Cliente implements Serializable{
 		return this.servicos;
 	}
 	
+	public void printarServicos() {
+		System.out.println("\n*********************");
+		System.out.println("Serviços realizados: \n");
+		for (String s : servicos) {
+			System.out.println("-"+s);
+			
+		}
+		System.out.println("*********************");
+	}
 }

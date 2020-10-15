@@ -113,7 +113,7 @@ public class Listar {
 			String nome = c.getNome().toLowerCase().trim();
 			
 			if(nome.equals(nomealvo)) {
-				System.out.println(c.getServicos());
+				c.printarServicos();
 			}
 		}
 	}
