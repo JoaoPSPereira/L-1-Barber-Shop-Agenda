@@ -68,9 +68,11 @@ public class Listar {
 		ObjectInputStream leitor = new ObjectInputStream(input);
 		clientes = (ArrayList<Cliente>) leitor.readObject();
 		leitor.close();
+		
+		String nomealvo = alvo.toLowerCase().trim();
 		for(Cliente c : clientes) {
 			String nome = c.getNome().toLowerCase().trim();
-			String nomealvo = alvo.toLowerCase().trim();
+			
 			if(nome.equals(nomealvo)) {
 				System.out.println(c.getNome());
 			}
@@ -96,6 +98,24 @@ public class Listar {
 		//printando
 		System.out.println(servicos.toString());
 	}
+	
+	@SuppressWarnings("unchecked")
+	public static void historico(String alvo) throws Exception{
+	
+		FileInputStream input = new FileInputStream(pathClientes);
+		ObjectInputStream leitor = new ObjectInputStream(input);
+		clientes = (ArrayList<Cliente>) leitor.readObject();
+		leitor.close();
+		String nomealvo = alvo.toLowerCase().trim();
+		for(Cliente c : clientes) {
+			String nome = c.getNome().toLowerCase().trim();
+			
+			if(nome.equals(nomealvo)) {
+				System.out.println(c.getServicos());
+			}
+		}
+	}
+	
 }
 
 //comentarioo

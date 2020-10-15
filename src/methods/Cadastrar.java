@@ -79,8 +79,10 @@ public class Cadastrar implements Serializable{
 		clientes = (ArrayList<Cliente>) leitorc.readObject();
 		leitorc.close();
 		
+		String alvo = e.getCliente().toUpperCase().trim();;
 		for(Cliente c : clientes) {
-			if (e.getCliente().equals(c.getNome())) {
+			String nomec = c.getNome().toUpperCase().trim();;
+			if (alvo.equals(nomec)) {
 				c.addServico(e.getNome());
 			}
 		}
