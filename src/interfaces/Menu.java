@@ -11,7 +11,8 @@ public class Menu {
 		System.out.println("3. Listar");
 		System.out.println("4. Gerar relatórios");
 		System.out.println("5. Marcar serviço");
-		System.out.println("6. Sair");
+		System.out.println("6. Histórico de cliente");
+		System.out.println("7. Sair");
 		System.out.println("*********************\n");
 	}
 

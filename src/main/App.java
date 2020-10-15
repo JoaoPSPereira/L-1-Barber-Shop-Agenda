@@ -26,7 +26,7 @@ public class App {
 		// ------------------------------
 		LeituraTeclado leitura = new LeituraTeclado();
 		int escolha = 0;
-		while (escolha != 6) {
+		while (escolha != 7) {
 			Menu.mostrarMenu();
 			escolha = leitura.numero();
 			
@@ -101,6 +101,11 @@ public class App {
 			Cadastrar.servico(servico);
 			escolha = 0;
 			}
+		if (escolha == 6) {
+			System.out.println("Digite o nome do cliente:");
+			String alvo = leitura.texto();
+			
+		}
 		
 		
 		
