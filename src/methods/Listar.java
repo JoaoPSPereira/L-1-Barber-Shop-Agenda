@@ -1,29 +1,21 @@
 package methods;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import locals.Path;
+import locals.Ler;
 import objects.Cliente;
 import objects.Servico;
 
 public class Listar {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = Path.clientes();
-	private static String pathServicos = Path.servicos();
-	
-	@SuppressWarnings("unchecked")
+
 	public static void clientes() throws Exception{
 		
-		//Lendo arquivo de serialização
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
+		//Lê o arquivo de clientes
+		clientes = Ler.clientes();
 		
 		//Colocando em ordem alfabética
 		Collections.sort(clientes, new Comparator<Cliente>(){
@@ -36,14 +28,27 @@ public class Listar {
 		System.out.println(clientes.toString());
 	}
 	
-	@SuppressWarnings("unchecked")
+	
+	public static void cliente(String alvo) throws Exception{
+	
+		//Lê o arquivo de clientes
+		clientes = Ler.clientes();
+		
+		String nomealvo = alvo.toLowerCase().trim();
+		for(Cliente c : clientes) {
+			String nome = c.getNome().toLowerCase().trim();
+			
+			if(nome.equals(nomealvo)) {
+				System.out.println(c.getNome());
+			}
+		}
+	}
+
+	
 	public static void genero(int genero) throws Exception{
 		
-		//Lendo arquivo de serialização
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
+		//Lê o arquivo de clientes
+		clientes = Ler.clientes();
 		
 		//Colocando em ordem alfabética
 		Collections.sort(clientes, new Comparator<Cliente>(){
@@ -61,33 +66,11 @@ public class Listar {
 		
 	}
 	
-	
-	@SuppressWarnings("unchecked")
-	public static void cliente(String alvo) throws Exception{
-	
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
-		
-		String nomealvo = alvo.toLowerCase().trim();
-		for(Cliente c : clientes) {
-			String nome = c.getNome().toLowerCase().trim();
-			
-			if(nome.equals(nomealvo)) {
-				System.out.println(c.getNome());
-			}
-		}
-	}
-	
-	@SuppressWarnings("unchecked")
+
 	public static void servicos() throws Exception{
 		
-		//Lendo arquivo de serialização
-		FileInputStream input = new FileInputStream(pathServicos);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		servicos = (ArrayList<Servico>) leitor.readObject();
-		leitor.close();
+		//Lê o arquivo de servicos
+		servicos = Ler.servicos();
 		
 		//Colocando em ordem alfabética
 		Collections.sort(servicos, new Comparator<Servico>(){
@@ -102,13 +85,11 @@ public class Listar {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static void historico(String alvo) throws Exception{
 	
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
+		//Lê o arquivo de clientes
+		clientes = Ler.clientes();
+		
 		String nomealvo = alvo.toLowerCase().trim();
 		for(Cliente c : clientes) {
 			String nome = c.getNome().toLowerCase().trim();

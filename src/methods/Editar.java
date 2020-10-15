@@ -1,31 +1,24 @@
 package methods;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
-import locals.Path;
+import locals.Escrever;
+import locals.Ler;
 import objects.Cliente;
-import objects.Servico;
 
 public class Editar {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	//Em manutenção
+	/*
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = Path.clientes();
-	private static String pathServicos = Path.servicos();
+	*/
 	
-	@SuppressWarnings("unchecked")
 	public static boolean cliente(String alvo) throws Exception{
 		
-		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(pathClientes);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		clientes = (ArrayList<Cliente>) leitor.readObject();
-		leitor.close();
+		//Lendo o arquivo de cadastros
+		clientes = Ler.clientes();
 		
 		
 		//Percorre a lista contendo os cadastros de clientes
@@ -116,10 +109,9 @@ public class Editar {
 				System.out.println("*********************");
 				
 				
-				FileOutputStream output = new FileOutputStream(pathClientes);
-				ObjectOutputStream escritor = new ObjectOutputStream(output);
-				escritor.writeObject(clientes);
-				escritor.close();;
+				//Salva o clientes.ser
+				Escrever.clientes(clientes);
+				
 				//-----------------------------
 				return true;
 			}
@@ -139,7 +131,8 @@ public class Editar {
 	}
 	
 	
-	
+	//Em manutenção
+	/*
 	@SuppressWarnings("unchecked")
 	public static boolean servico(String alvo, Servico novo) throws Exception{
 			
@@ -153,8 +146,8 @@ public class Editar {
 		//Percorre a lista contendo os cadastros de clientes
 		for(Servico s : servicos) {
 			if (s.getNome().toUpperCase() == alvo.toUpperCase()) {
-				/*Se o nome do objeto sendo percorrido é igual ao 
-				nome do objeto alvo, remove o objeto da lista*/
+				//Se o nome do objeto sendo percorrido é igual ao 
+				//nome do objeto alvo, remove o objeto da lista
 				int index = servicos.indexOf(s);
 				servicos.remove(s);
 				
@@ -170,5 +163,6 @@ public class Editar {
 		}
 		return false;
 	}
+	*/
 }
 
