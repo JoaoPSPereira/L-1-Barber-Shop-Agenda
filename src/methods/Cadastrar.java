@@ -32,14 +32,12 @@ public class Cadastrar implements Serializable{
 			escritor.writeObject(clientes);
 			escritor.close();;
 		}
-		
-		
-		if(temp.exists()) {
-			FileInputStream input = new FileInputStream(pathClientes);
-			ObjectInputStream leitor = new ObjectInputStream(input);
-			clientes = (ArrayList<Cliente>) leitor.readObject();
-			leitor.close();
-		}
+				
+		FileInputStream input = new FileInputStream(pathClientes);
+		ObjectInputStream leitor = new ObjectInputStream(input);
+		clientes = (ArrayList<Cliente>) leitor.readObject();
+		leitor.close();
+	
 		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		//Adiciona o novo cliente à lista de cadastro
 		clientes.add(e);
@@ -63,14 +61,34 @@ public class Cadastrar implements Serializable{
 			escritor.close();;
 		}
 		
+		
+		
 		//Lendo o arquivo de cadastros e salvando em lista local temporaria
 		FileInputStream input = new FileInputStream(pathServicos);
 		ObjectInputStream leitor = new ObjectInputStream(input);
 		servicos = (ArrayList<Servico>) leitor.readObject();
 		leitor.close();
 		
+		//Lê o arquivo de clientes
+		File temp2 = new File(pathClientes);
+		if(!temp2.exists()) {
+			System.out.println("Cliente não cadastrado");
+		}
+		FileInputStream inputc = new FileInputStream(pathClientes);
+		ObjectInputStream leitorc = new ObjectInputStream(inputc);
+		clientes = (ArrayList<Cliente>) leitorc.readObject();
+		leitorc.close();
+		
+		for(Cliente c : clientes) {
+			if (e.getCliente().equals(c.getNome())) {
+				c.addServico(e.getNome());
+			}
+		}
+		
+		//Cadastra o serviço
 		servicos.add(e);
 		
+		//Escreve o serviço no arquivo
 		FileOutputStream output = new FileOutputStream(pathServicos);
 		ObjectOutputStream escritor = new ObjectOutputStream(output);
 		escritor.writeObject(servicos);
