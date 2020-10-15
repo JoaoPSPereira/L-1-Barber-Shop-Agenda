@@ -29,7 +29,7 @@ public class Relatorio {
 		
 		Integer media = totalIdade/nascimentos.size();
 		
-		System.out.println("Média de idade dos Clientes:" + media);
+		System.out.println("\nMédia de idade de todos os clientes: " + media + " anos");
 	}
 	
 	public static void idadeMediaPorGenero(int genero) throws ClassNotFoundException, IOException {
@@ -40,6 +40,18 @@ public class Relatorio {
 		
 		ArrayList<LocalDate> nascimentos = new ArrayList<LocalDate>();
 		Integer totalIdade = 0;
+		String genEscrito = null;
+		switch (genero) {
+		case 0:
+			genEscrito = "Masculino";
+			break;
+		case 1:
+			genEscrito = "Feminino";
+			break;
+		case 2:
+			genEscrito = "Outros";
+			break;
+		}
 		
 		for (Cliente c : clientes) {
 			if(c.getGenero() == genero) {
@@ -54,7 +66,7 @@ public class Relatorio {
 		
 		Integer media = totalIdade/nascimentos.size();
 		
-		System.out.println("Média de idade dos Clientes:" + media);
+		System.out.println("\nMédia de idade dos clientes do gênero " + genEscrito +": " + media + " anos");
 	}
 	
 	

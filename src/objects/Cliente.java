@@ -17,7 +17,7 @@ public class Cliente implements Serializable{
 	//Atributos
 	private String nome;
 	private String telefone;
-	private LocalDate nascimento;
+	private LocalDate nascimento = null;
 	private int genero;
 	private int idade;
 	private ArrayList<String> servicos = new ArrayList<String>();
