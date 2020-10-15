@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
+import locals.Path;
 import objects.Cliente;
 import objects.Servico;
 
@@ -15,8 +16,8 @@ public class Excluir {
 	//Variáveis para leitura do arquivo de cadastros
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
-	private static String pathServicos = System.getProperty("user.home") + "\\Desktop\\servicos.ser";
+	private static String pathClientes = Path.clientes();
+	private static String pathServicos = Path.servicos();
 	
 	@SuppressWarnings("unchecked")
 	public static boolean cliente(String alvo) throws Exception{
