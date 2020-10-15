@@ -24,9 +24,18 @@ public class Servico implements Serializable{
 		this.horario = horario;
 	}
 	
+	
+	
 	//------------------------------------------------------//
 	//Getters e Setters
 	
+	@Override
+	public String toString() {
+		return "nome=" + nome + ", cliente=" + cliente + ", data=" + data + ", horario=" + horario + "\n";
+	}
+
+
+
 	public String getNome() {
 		return nome;
 	}
