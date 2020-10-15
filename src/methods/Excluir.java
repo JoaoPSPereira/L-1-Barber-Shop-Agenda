@@ -1,16 +1,11 @@
 package methods;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
 import locals.Escrever;
 import locals.Ler;
-import locals.Path;
 import objects.Cliente;
 import objects.Servico;
 
@@ -18,8 +13,6 @@ public class Excluir {
 	//Variáveis para leitura do arquivo de cadastros
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
-	private static String pathClientes = Path.clientes();
-	private static String pathServicos = Path.servicos();
 	
 	public static boolean cliente(String alvo) throws Exception{
 		
@@ -81,14 +74,10 @@ public class Excluir {
 		return false;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static boolean servico(String alvo) throws Exception{
 		
-		//Lendo o arquivo de cadastros e salvando em lista local temporaria
-		FileInputStream input = new FileInputStream(pathServicos);
-		ObjectInputStream leitor = new ObjectInputStream(input);
-		servicos = (ArrayList<Servico>) leitor.readObject();
-		leitor.close();
+		//Lê o arquivo de servicos
+		servicos = Ler.servicos();
 		
 		
 		//Percorre a lista contendo os cadastros de servicos
@@ -98,10 +87,8 @@ public class Excluir {
 				nome do objeto alvo, remove o objeto da lista*/
 				servicos.remove(s);
 				
-				FileOutputStream output = new FileOutputStream(pathServicos);
-				ObjectOutputStream escritor = new ObjectOutputStream(output);
-				escritor.writeObject(servicos);
-				escritor.close();;
+				//Salva o servicos.ser
+				Escrever.servicos(servicos);
 				
 				return true;
 			}
