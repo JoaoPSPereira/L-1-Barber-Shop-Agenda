@@ -3,6 +3,7 @@ package main;
 /*Classe do front-end*/
 
 import objects.Cliente;
+import objects.Servico;
 
 import java.io.File;
 
@@ -25,7 +26,7 @@ public class App {
 		// ------------------------------
 		LeituraTeclado leitura = new LeituraTeclado();
 		int escolha = 0;
-		while (escolha != 5) {
+		while (escolha != 6) {
 			Menu.mostrarMenu();
 			escolha = leitura.numero();
 			
@@ -62,21 +63,39 @@ public class App {
 			System.out.println("0- Listar por gênero Masculino");
 			System.out.println("1- Listar por gênero Feminino");
 			System.out.println("2- Listar por gênero Outros");
-			System.out.println("3- Listar todos");
+			System.out.println("3- Listar todos os clientes");
+			System.out.println("4- Listar serviços");
 			escolha = 0;
 			escolha = leitura.numero();
 			
-			if (escolha != 3) {
+			if (escolha == 0 || escolha == 1 || escolha == 2) {
 				Listar.genero(escolha);
 			}
-			else {
+			else if (escolha == 3) {
 				Listar.clientes();
+			}
+			
+			else {
+				Listar.servicos();
 			}
 		}
 		
 		if (escolha == 4) {
 			System.out.println("gerar relatorios");
 		}
+		
+		if (escolha == 5) {
+			System.out.println("Digite o serviço desejado:");
+			String servico1 = leitura.texto();	
+			System.out.println("Digite o nome do cliente:");
+			String cliente = leitura.texto();
+			System.out.println("Digite o dia agendado em xx/xx/xx:");
+			String data = leitura.texto();
+			System.out.println("Digite a hora agendada em xx:xx");
+			String horario = leitura.texto();
+			Servico servico = new Servico(servico1, cliente, data, horario);
+			Cadastrar.servico(servico);
+			}
 		
 		
 		
