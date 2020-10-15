@@ -7,10 +7,13 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import objects.Cliente;
+import objects.Servico;
 
 public class Listar {
 	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private static ArrayList<Servico> servicos = new ArrayList<Servico>();
 	private static String pathClientes = System.getProperty("user.home") + "\\Desktop\\clientes.ser";
+	private static String pathServicos = System.getProperty("user.home") + "\\Desktop\\servicos.ser";
 	
 	@SuppressWarnings("unchecked")
 	public static void clientes() throws Exception{
@@ -74,7 +77,25 @@ public class Listar {
 		}
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	public static void servicos() throws Exception{
+		
+		//Lendo arquivo de serialização
+		FileInputStream input = new FileInputStream(pathServicos);
+		ObjectInputStream leitor = new ObjectInputStream(input);
+		servicos = (ArrayList<Servico>) leitor.readObject();
+		leitor.close();
+		
+		//Colocando em ordem alfabética
+		Collections.sort(servicos, new Comparator<Servico>(){
+		    public int compare(Servico s1, Servico s2) {
+		        return s1.getNome().compareToIgnoreCase(s2.getNome());
+		    }
+		});
+		
+		//printando
+		System.out.println(servicos.toString());
+	}
 }
 
 //comentarioo
