@@ -1,6 +1,7 @@
 package objects;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /*Classe que representa o objeto Cliente*/
@@ -16,14 +17,14 @@ public class Cliente implements Serializable{
 	//Atributos
 	private String nome;
 	private String telefone;
-	private String nascimento;
+	private LocalDate nascimento;
 	private int genero;
 	private int idade;
 	private ArrayList<String> servicos = new ArrayList<String>();
 	
 	//------------------------------------------------------//
 	//Construtor
-	public Cliente(String nome, String telefone, String nascimento, int genero) {
+	public Cliente(String nome, String telefone, LocalDate nascimento, int genero) {
 		this.nome = nome;
 		this.telefone = telefone;
 		this.nascimento = nascimento;
@@ -76,10 +77,10 @@ public class Cliente implements Serializable{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getNascimento() {
+	public LocalDate getNascimento() {
 		return nascimento;
 	}
-	public void setNascimento(String nascimento) {
+	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
 	public int getGenero() {

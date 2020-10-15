@@ -1,9 +1,11 @@
 package methods;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
+import locals.Conversor;
 import locals.Escrever;
 import locals.Ler;
 import objects.Cliente;
@@ -34,6 +36,7 @@ public class Editar {
 				String newnascimento;
 				int newgenero;
 				int index = clientes.indexOf(c);
+				LocalDate data;
 				
 				Cliente newc = clientes.get(index);
 				
@@ -71,7 +74,8 @@ public class Editar {
 				case 2:
 					System.out.println("Nova data de nascimento:");
 					newnascimento = leitura.texto();
-					newc.setNascimento(newnascimento);
+					data = Conversor.stringToLocalDate(newnascimento);
+					newc.setNascimento(data);
 					break;
 				case 3:
 					System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
@@ -88,7 +92,8 @@ public class Editar {
 					newc.setTelefone(newtelefone);
 					System.out.println("Nova data de nascimento:");
 					newnascimento = leitura.texto();
-					newc.setNascimento(newnascimento);
+					data = Conversor.stringToLocalDate(newnascimento);
+					newc.setNascimento(data);
 					System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
 					System.out.println("Novo gênero:");
 					newgenero = leitura.numero();

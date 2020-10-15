@@ -5,8 +5,11 @@ package main;
 import objects.Cliente;
 import objects.Servico;
 
+import java.time.LocalDate;
+
 import interfaces.LeituraTeclado;
 import interfaces.Menu;
+import locals.Conversor;
 import methods.*;
 
 
@@ -34,10 +37,11 @@ public class App {
 			String telefone = leitura.texto();
 			System.out.println("Data de nascimento:");
 			String nascimento = leitura.texto();
+			LocalDate data = Conversor.stringToLocalDate(nascimento);
 			System.out.println("Informe o gênero");
 			System.out.println("Digite 0 para Masculino, 1 para Feminino ou 2 para Outros");
 			int genero = leitura.numero();
-			Cliente c = new Cliente(nome, telefone, nascimento, genero);
+			Cliente c = new Cliente(nome, telefone, data, genero);
 			Cadastrar.cliente(c);
 			System.out.println(c);
 		}
