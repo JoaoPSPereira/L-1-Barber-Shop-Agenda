@@ -1,6 +1,7 @@
 package objects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /*Classe que representa o objeto Cliente*/
 
@@ -18,6 +19,7 @@ public class Cliente implements Serializable{
 	private String nascimento;
 	private int genero;
 	private int idade;
+	private ArrayList<String> servicos = new ArrayList<String>();
 	
 	//------------------------------------------------------//
 	//Construtor
@@ -92,7 +94,11 @@ public class Cliente implements Serializable{
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	
-
+	public void addServico(String e) {
+		this.servicos.add(e);
+	}
+	public ArrayList<String> getServicos(){
+		return this.servicos;
+	}
 	
 }
