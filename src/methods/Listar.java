@@ -25,7 +25,9 @@ public class Listar {
 		});
 		
 		//printando
-		System.out.println(clientes.toString());
+		for(Cliente c : clientes) {
+			c.print();
+		}
 	}
 	
 	
