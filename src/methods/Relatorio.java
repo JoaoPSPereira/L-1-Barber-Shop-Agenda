@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import objects.Cliente;
@@ -84,8 +86,8 @@ public class Relatorio {
 			servicoClientes.addAll(c.getServicos());
 		}
 		
-		Map<String, Long> occurrences = 
-				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+		String occurrences = 
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
 		
 		System.out.println("Geral: " + occurrences);
 	}
@@ -117,7 +119,7 @@ public class Relatorio {
 		}
 		
 		String occurrences = 
-				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();;
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
 		
 		
 		System.out.println("Servico mais procurado pelo gênero " + genEscrito + ": " + occurrences);
