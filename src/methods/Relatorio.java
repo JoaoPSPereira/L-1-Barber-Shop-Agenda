@@ -115,6 +115,10 @@ public class Relatorio {
 			if (c.getGenero() == genero) {
 				servicoClientes.addAll(c.getServicos());
 			}
+			else
+			{
+				servicoClientes.add("N/A");
+			}
 		}
 		
 		String occurrences = 
