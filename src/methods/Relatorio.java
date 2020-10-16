@@ -32,7 +32,7 @@ public class Relatorio {
 		
 		Integer media = totalIdade/nascimentos.size();
 		
-		System.out.println("\nMédia de idade de todos os clientes: " + media + " anos");
+		System.out.println("\nGeral: " + media + " anos");
 	}
 	
 	public static void idadeMediaPorGenero(int genero) throws ClassNotFoundException, IOException {
@@ -69,7 +69,7 @@ public class Relatorio {
 		
 		Integer media = totalIdade/nascimentos.size();
 		
-		System.out.println("\nMédia de idade dos clientes do gênero " + genEscrito +": " + media + " anos");
+		System.out.println("\nGênero " + genEscrito +": " + media + " anos");
 	}
 	
 	public static void servicoMaisProcurado() throws ClassNotFoundException, IOException {
@@ -86,7 +86,7 @@ public class Relatorio {
 		Map<String, Long> occurrences = 
 				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting()));
 		
-		System.out.println("Servico mais procurado: " + occurrences);
+		System.out.println("Geral: " + occurrences);
 	}
 }
 

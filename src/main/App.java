@@ -87,28 +87,28 @@ public class App {
 
 			if (escolha == 4) {
 				System.out.println("Selecione a opção desejada:");
-				System.out.println("0- Relatório de clientes");
-				System.out.println("1- Relatório de serviço");
+				System.out.println("0- Média de idade de clientes");
+				System.out.println("1- Serviço mais procurado");
 				int opcao = 0;
 				opcao = leitura.numero();
 				if (opcao == 0) {
-					System.out.println("\n*********************");
-					System.out.println("RELATÓRIOS DE CLIENTES");
-					System.out.println("*********************");
+					System.out.println("\n**********************************");
+					System.out.println("RELATÓRIO: IDADE MÉDIA DE CLIENTES");
+					System.out.println("**********************************");
+					Relatorio.idadeMedia();
 					Relatorio.idadeMediaPorGenero(0);
 					Relatorio.idadeMediaPorGenero(1);
 					Relatorio.idadeMediaPorGenero(2);
-					Relatorio.idadeMedia();
-					System.out.println("*********************");
+					System.out.println("**********************************");
 					
 				}
 				
 				else if (opcao == 1) {
-					System.out.println("\n*********************");
-					System.out.println("RELATÓRIOS DE SERVIÇOS");
-					System.out.println("*********************");
+					System.out.println("\n**********************************");
+					System.out.println("RELATÓRIO: SERVIÇO MAIS PROCURADO");
+					System.out.println("**********************************");
 					Relatorio.servicoMaisProcurado();
-					System.out.println("*********************");
+					System.out.println("**********************************");
 				}
 				
 
