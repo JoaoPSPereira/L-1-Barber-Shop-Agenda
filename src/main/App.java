@@ -107,9 +107,6 @@ public class App {
 					System.out.println("\n*********************");
 					System.out.println("RELATÓRIOS DE SERVIÇOS");
 					System.out.println("*********************");
-					Relatorio.idadeMediaPorGenero(0);
-					Relatorio.idadeMediaPorGenero(1);
-					Relatorio.idadeMediaPorGenero(2);
 					Relatorio.servicoMaisProcurado();
 					System.out.println("*********************");
 				}
