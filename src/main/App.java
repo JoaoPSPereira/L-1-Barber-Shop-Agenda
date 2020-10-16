@@ -87,31 +87,33 @@ public class App {
 
 			if (escolha == 4) {
 				System.out.println("Selecione a opção desejada:");
-				System.out.println("0- Idade média de clientes do gênero Masculino");
-				System.out.println("1- Idade média de clientes do gênero Feminino");
-				System.out.println("2- Idade média de clientes do gênero 'Outros'");
-				System.out.println("3- Idade média de todos os clientes");
-				System.out.println("4- Serviço mais procurado pelo gênero Masculino");
-				System.out.println("5- Serviço mais procurado pelo gênero Feminino");
-				System.out.println("6- Serviço mais procurado pelo gênero 'Outros'");
-				System.out.println("7- Serviço mais procurado por todos os clientes");
+				System.out.println("0- Relatório de clientes");
+				System.out.println("1- Relatório de serviço");
 				int opcao = 0;
 				opcao = leitura.numero();
-				if (opcao == 0 || opcao == 1 || opcao == 2) {
-					Relatorio.idadeMediaPorGenero(opcao);
-				}
-
-				else if (opcao == 3) {
+				if (opcao == 0) {
+					System.out.println("\n*********************");
+					System.out.println("RELATÓRIOS DE CLIENTES");
+					System.out.println("*********************");
+					Relatorio.idadeMediaPorGenero(0);
+					Relatorio.idadeMediaPorGenero(1);
+					Relatorio.idadeMediaPorGenero(2);
 					Relatorio.idadeMedia();
+					System.out.println("*********************");
+					
 				}
-
-				else if (opcao == 4 || opcao == 5 || opcao == 6) {
-					System.out.println("relatorio servicos genero");
+				
+				else if (opcao == 1) {
+					System.out.println("\n*********************");
+					System.out.println("RELATÓRIOS DE SERVIÇOS");
+					System.out.println("*********************");
+					Relatorio.idadeMediaPorGenero(0);
+					Relatorio.idadeMediaPorGenero(1);
+					Relatorio.idadeMediaPorGenero(2);
+					Relatorio.servicoMaisProcurado();
+					System.out.println("*********************");
 				}
-
-				else if (opcao == 7) {
-					System.out.println("relatorio servico todos");
-				}
+				
 
 			}
 			if (escolha == 5) {
