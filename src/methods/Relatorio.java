@@ -89,5 +89,38 @@ public class Relatorio {
 		
 		System.out.println("Geral: " + occurrences);
 	}
+	
+	public static void servicoMaisProcuradoPorGenero(int genero) throws ClassNotFoundException, IOException {
+		
+		ArrayList<String> servicoClientes = new ArrayList<String>();
+		
+		//Lê o arquivo de clientes
+		ArrayList<Cliente> clientes = Ler.clientes();
+		
+		String genEscrito = null;
+		switch (genero) {
+		case 0:
+			genEscrito = "Masculino";
+			break;
+		case 1:
+			genEscrito = "Feminino";
+			break;
+		case 2:
+			genEscrito = "Outros";
+			break;
+		}
+		
+		for (Cliente c : clientes)	{
+			if (c.getGenero() == genero) {
+				servicoClientes.addAll(c.getServicos());
+			}
+		}
+		
+		String occurrences = 
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();;
+		
+		
+		System.out.println("Servico mais procurado pelo gênero " + genEscrito + ": " + occurrences);
+	}
 }
 
