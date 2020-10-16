@@ -43,6 +43,7 @@ public class Relatorio {
 		
 		ArrayList<LocalDate> nascimentos = new ArrayList<LocalDate>();
 		Integer totalIdade = 0;
+		
 		String genEscrito = null;
 		switch (genero) {
 		case 0:
@@ -67,7 +68,7 @@ public class Relatorio {
 			totalIdade = totalIdade + idade;
 		}
 		
-		Integer media = totalIdade/nascimentos.size();
+		Integer media = totalIdade/(nascimentos.size() + 1);
 		
 		System.out.println("\nGênero " + genEscrito +": " + media + " anos");
 	}
