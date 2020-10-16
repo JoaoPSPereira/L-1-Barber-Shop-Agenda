@@ -103,12 +103,13 @@ public class Cliente implements Serializable{
 	}
 	
 	public void printarServicos() {
-		System.out.println("\n*********************");
-		System.out.println("Serviços realizados: \n");
+		System.out.println("\n*********************************");
+		System.out.println("HISTÓRICO DE SERVIÇOS DO CLIENTE");
+		System.out.println("*********************************");
 		for (String s : servicos) {
 			System.out.println("-"+s);
 			
 		}
-		System.out.println("*********************");
+		System.out.println("*********************************");
 	}
 }
