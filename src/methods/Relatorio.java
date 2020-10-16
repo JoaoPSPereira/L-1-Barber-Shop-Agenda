@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Comparator;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import objects.Cliente;
@@ -43,6 +44,7 @@ public class Relatorio {
 		
 		ArrayList<LocalDate> nascimentos = new ArrayList<LocalDate>();
 		Integer totalIdade = 0;
+		
 		String genEscrito = null;
 		switch (genero) {
 		case 0:
@@ -67,7 +69,7 @@ public class Relatorio {
 			totalIdade = totalIdade + idade;
 		}
 		
-		Integer media = totalIdade/nascimentos.size();
+		Integer media = totalIdade/(nascimentos.size() + 1);
 		
 		System.out.println("\nGênero " + genEscrito +": " + media + " anos");
 	}
@@ -83,10 +85,43 @@ public class Relatorio {
 			servicoClientes.addAll(c.getServicos());
 		}
 		
-		Map<String, Long> occurrences = 
-				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting()));
+		String occurrences = 
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
 		
 		System.out.println("Geral: " + occurrences);
+	}
+	
+	public static void servicoMaisProcuradoPorGenero(int genero) throws ClassNotFoundException, IOException {
+		
+		ArrayList<String> servicoClientes = new ArrayList<String>();
+		
+		//Lê o arquivo de clientes
+		ArrayList<Cliente> clientes = Ler.clientes();
+		
+		String genEscrito = null;
+		switch (genero) {
+		case 0:
+			genEscrito = "Masculino";
+			break;
+		case 1:
+			genEscrito = "Feminino";
+			break;
+		case 2:
+			genEscrito = "Outros";
+			break;
+		}
+		
+		for (Cliente c : clientes)	{
+			if (c.getGenero() == genero) {
+				servicoClientes.addAll(c.getServicos());
+			}
+		}
+		
+		String occurrences = 
+				  servicoClientes.stream().collect(Collectors.groupingBy(w -> w, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).get().getKey();
+		
+		
+		System.out.println("Servico mais procurado pelo gênero " + genEscrito + ": " + occurrences);
 	}
 }
 
