@@ -108,6 +108,9 @@ public class App {
 					System.out.println("RELATÓRIO: SERVIÇO MAIS PROCURADO");
 					System.out.println("**********************************");
 					Relatorio.servicoMaisProcurado();
+					Relatorio.servicoMaisProcuradoPorGenero(0);
+					Relatorio.servicoMaisProcuradoPorGenero(1);
+					Relatorio.servicoMaisProcuradoPorGenero(2);
 					System.out.println("**********************************");
 				}
 				
