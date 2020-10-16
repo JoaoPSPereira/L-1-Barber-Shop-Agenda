@@ -78,7 +78,7 @@ public class App {
 
 				else {
 					System.out.println("\n*********************");
-					System.out.println("SERVIÇOS");
+					System.out.println("SERVIÇOS CADASTRADOS");
 					System.out.println("*********************");
 					Listar.servicos();
 					System.out.println("*********************");
